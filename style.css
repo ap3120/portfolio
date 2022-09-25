@@ -1,5 +1,6 @@
 :root{
-    --primary-color: #444;
+    --primary-color: #bbb;
+    --secondary-color: #53009B;
     --project-card-color: #777;
 }
 body{
@@ -10,13 +11,13 @@ nav{
     display: flex;
     justify-content: end;
     align-items: center;
-    background-color: #bbb;
-    min-height: 58px;
+    background-color: var(--primary-color);
+    min-height: 59px;
     position: fixed;
     width: 100%;
     top: 0;
     transition: top 0.2s;
-    opacity: 80%;
+    opacity: 95%;
     z-index: 1;
 }
 nav ul{
@@ -27,6 +28,7 @@ nav a{
     text-decoration: none;
     padding: 20px 40px;
     font-weight: bold;
+    color: var(--secondary-color);
 }
 nav a:hover{
     cursor: pointer;
@@ -53,7 +55,7 @@ nav a:hover{
         right: 0px;
         top: 58px;
         height: 90vh;
-        background-color: #bbb;
+        background-color: var(--primary-color);
         display: flex;
         flex-direction: column;
         justify-content: space-around;
@@ -95,6 +97,9 @@ nav a:hover{
 p {
     text-align: justify;
 }
+a {
+    color: var(--secondary-color);
+}
 main{
     position: relative;
     top: 60px;
@@ -106,7 +111,7 @@ main{
     margin: 0 auto;
 }
 .section-title{
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 #courses{
     width: 100%;
@@ -117,7 +122,7 @@ main{
     align-items: start;
 }
 .courses-list{
-    min-width: 160px;
+    min-width: 165px;
     font-weight: bold;
 }
 .courses-list ul{
@@ -126,13 +131,18 @@ main{
 .courses-list ul li{
     list-style-type: none;
     padding: 10px 5px;
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    margin-bottom: 2px;
 }
 .courses-list ul li:hover{
     cursor: pointer;
     background-color: #ddd;
+    color: var(--secondary-color);
 }
 .btn-active{
-    background-color: #bbb;
+    background-color: var(--secondary-color);
+    color: #fff;
 }
 .course-content{
     padding-left: 20px;
@@ -180,8 +190,8 @@ main{
     flex-wrap: wrap;
 }
 .project-card{
-    width: 280px;
-    height: 300px;
+    width: 300px;
+    height: 400px;
     background-color: var(--project-card-color);
     color: #fff;
     border-radius: 30px;
