@@ -1,6 +1,6 @@
 :root{
     --primary-color: #bbb;
-    --secondary-color: #53009B;
+    --secondary-color: #005f69;
     --project-card-color: #777;
 }
 body{
@@ -9,7 +9,7 @@ body{
 }
 nav{
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     background-color: var(--primary-color);
     min-height: 59px;
@@ -19,6 +19,9 @@ nav{
     transition: top 0.2s;
     opacity: 95%;
     z-index: 1;
+}
+nav img{
+    margin-left: 20px;
 }
 nav ul{
     display: flex;
@@ -113,6 +116,36 @@ main{
 .section-title{
     color: var(--secondary-color);
 }
+.background{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.web-dev{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+.background-text{
+    width: 50%;
+    margin-right: 10%;
+}
+.web-dev-text{
+    width: 50%;
+    margin-right: 0px;
+    margin-left: 10%;
+}
+@media screen and (max-width: 770px){
+    .background, .web-dev{
+        flex-direction: column;
+        align-items: center;
+    }
+    .background-text, .web-dev-text{
+        width: 100%;
+        margin: 0px;
+    }
+}
 #courses{
     width: 100%;
 }
@@ -124,9 +157,11 @@ main{
 .courses-list{
     min-width: 165px;
     font-weight: bold;
+    margin-right: 50px;
 }
 .courses-list ul{
     padding: 0px;
+    margin-top: 0px;
 }
 .courses-list ul li{
     list-style-type: none;
@@ -145,7 +180,6 @@ main{
     color: #fff;
 }
 .course-content{
-    padding-left: 20px;
     text-align: justify;
 }
 .custom-list{
@@ -217,7 +251,13 @@ main{
     font-size: 12px;
     line-height: 20px;
 }
-.bot-link{
-    font-size: 2em;
-    padding: 50px;
+footer{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+hr{
+    width: 80vw;
+    border-top: 2px solid var(--secondary-color);
 }

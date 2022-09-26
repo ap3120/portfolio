@@ -10,11 +10,13 @@
 
 <body>
     <nav>
+        <img src="logo.png" alt="logo" height="45px">
         <ul>
             <li><a href="#about">About</a></li>
             <li><a href="#courses">Courses</a></li>
             <li><a href="#projects">Projects</a></li>
         </ul>
+        <a href="https://github.com/ap3120/" target="_blank"><i class="fa-brands fa-github"></i></a>
         <div class="burger">
             <div class="top"></div>
             <div class="mid"></div>
@@ -27,7 +29,20 @@
             <h2>Web developer.</h2>
             <br>
             <h2 class="section-title"><i class="fa-regular fa-address-card"></i> About me</h2>
-            <p>I have a structural engineering background but having a passion for coding, I have decided to become a web developer. I have been working intensly on online courses and personal projects to gain solid and effective developer skills.</p>
+            <div class="background">
+                <div class="background-text">
+                    <h3>My background</h3>
+                    <p>I have a structural engineering background with a Master degree completed at Imperial College London in 2021. I have then worked for a year at <a href="https://www.meinhardt.co.uk/" target="_blank">Meinhardt UK</a> on large scale multidisciplinary projects accross the UK.</p>
+                </div>
+                <img src="structural-engineer.png" alt="structural engineer" width="300px" data-tilt>
+            </div>
+            <div class="web-dev">
+                <div class="web-dev-text">
+                    <h3>What I am looking for</h3>
+                    <p>Although I have enjoyed working as a structural engineer, I have a passion for coding, and I have decided to change my career path to become a web developer. I have been working intensly on online courses and personal projects to gain solid and effective developer skills.</p>
+                </div>
+                <img src="web-dev.png" alt="web dev" width="300px" data-tilt>
+            </div>
         </div>
         <div id="courses">
             <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Courses</h2>
@@ -117,8 +132,12 @@
                 </div>
             </div>
         </div>
-        <a class="bot-link" href="https://github.com/ap3120/" target="_blank"><i class="fa-brands fa-github"></i></a>
     </main>
+    <footer>
+        <hr>
+        <p>Copyright &copy; 2022 All Rights Reserved</p>
+    </footer>
     <script src="./app.js"></script>
+    <script type="text/javascript" src="vanilla-tilt.js"></script>
 </body>
 </html>
