@@ -172,6 +172,15 @@ main{
     color: var(--secondary-color);
     font-size: 3em;
     margin: 100px 0px;
+    z-index: 2;
+}
+.section-text {
+    color: var(--dark-grey-color);
+    font-weight: bold;
+    font-size: 1.5em;
+    text-align: center;
+    z-index: 2;
+    margin-bottom: 50px;
 }
 .course {
     position: relative;

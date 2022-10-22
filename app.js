@@ -1,7 +1,8 @@
+const burger = document.querySelector('.burger');
+const nav = document.querySelector('nav ul');
+const links = document.querySelectorAll('nav ul li');
+
 const navSlide = () => {
-    const burger = document.querySelector('.burger');
-    const nav = document.querySelector('nav ul');
-    const links = document.querySelectorAll('nav ul li');
     burger.addEventListener('click', () => {
         // Toggle nav
         nav.classList.toggle('nav-active');
@@ -19,9 +20,24 @@ const navSlide = () => {
 }
 
 navSlide();
+const styles = getComputedStyle(burger);
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        if (styles.display === 'block'){
+            nav.classList.toggle('nav-active');
+            links.forEach(link => {
+                link.style.animation = '';
+            })
+            burger.classList.toggle('toggle');
+        }
+    })
+})
 
-// Show hide navbar when scrolling
+// Show hide navbar when scrolling and home fade-out
 let prevScrollPos = window.pageYOffset;
+const coursesSection = document.getElementById('courses');
+const homeSection = document.getElementById('home');
+const initialCoursesSectionPosition = coursesSection.offsetTop;
 
 window.onscroll = () => {
     let currentScrollPos = window.pageYOffset;
@@ -31,13 +47,6 @@ window.onscroll = () => {
         document.querySelector('nav').style.top = '-58px';
     }
     prevScrollPos = currentScrollPos;
-}
-// home fadeout
-const coursesSection = document.getElementById('courses');
-const homeSection = document.getElementById('home');
-const initialCoursesSectionPosition = coursesSection.offsetTop;
-console.log(initialCoursesSectionPosition);
-window.onscroll = () => {
     let courseSectionPosition = coursesSection.offsetTop - window.pageYOffset;
     homeSection.style.opacity = 2*courseSectionPosition/initialCoursesSectionPosition - 1;
 }
@@ -54,7 +63,7 @@ const projects = [
     },
     {
         title:'Jammming',
-        text:'Use the Spotify API to search artists and songs and create playlists. Deployed the website using Surge.',
+        text:'Used the Spotify API to search artists and songs and create playlists. Deployed the website using Surge.',
         image:'./images/jammming.png',
         githubLink:'https://github.com/ap3120/jamming',
         url:'http://jammingworkshop.surge.sh',
