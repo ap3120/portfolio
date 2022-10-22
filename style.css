@@ -1,12 +1,15 @@
 :root{
     --primary-color: #bbb;
     --secondary-color: #005f69;
-    --project-card-color: #777;
+    --dark-grey-color: #777;
 }
 body{
     margin: 0;
     font-family: sans-serif;
 }
+
+/* nav section */
+
 nav{
     display: flex;
     justify-content: space-between;
@@ -97,12 +100,12 @@ nav a:hover{
 .toggle .bot{
     transform: rotate(45deg) translate(-5px, -6px);
 }
-p {
-    text-align: justify;
-}
 a {
     color: var(--secondary-color);
 }
+
+/* main section */
+
 main{
     position: relative;
     top: 60px;
@@ -113,135 +116,206 @@ main{
     width: 80%;
     margin: 0 auto;
 }
-.section-title{
-    color: var(--secondary-color);
-}
-.background{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.web-dev{
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-}
-.background-text{
-    width: 50%;
-    margin-right: 10%;
-}
-.web-dev-text{
-    width: 50%;
-    margin-right: 0px;
-    margin-left: 10%;
-}
-@media screen and (max-width: 770px){
-    .background, .web-dev{
-        flex-direction: column;
-        align-items: center;
-    }
-    .background-text, .web-dev-text{
-        width: 100%;
-        margin: 0px;
-    }
-}
-#courses{
-    width: 100%;
-}
-.courses-container{
-    display: flex;
-    justify-content: start;
-    align-items: start;
-}
-.courses-list{
-    min-width: 165px;
-    font-weight: bold;
-    margin-right: 50px;
-}
-.courses-list ul{
-    padding: 0px;
-    margin-top: 0px;
-}
-.courses-list ul li{
-    list-style-type: none;
-    padding: 10px 5px;
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
-    margin-bottom: 2px;
-}
-.courses-list ul li:hover{
-    cursor: pointer;
-    background-color: #ddd;
-    color: var(--secondary-color);
-}
-.btn-active{
-    background-color: var(--secondary-color);
-    color: #fff;
-}
-.course-content{
-    text-align: justify;
-}
-.custom-list{
-    column-count: 2;
-    font-size: 12px;
-    color: #444;
-    line-height: 20px;
-}
 @media screen and (max-width:650px){
     main{
         width: 90%;
     }
-    .courses-container{
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-    }
-    .courses-list{
-        width: 100%;
-    }
-    .courses-list ul{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-    .courses-li ul li{
-        flex: 1;
+}
+@media screen and (max-width: 500px){
+    main {
+        width: 95%;
     }
 }
-.codecademy, .near{
+
+/* home section */
+
+#home {
+    position: sticky;
+    top: 160px;/* 100px for the margin and 60px for the navbar */
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-grey-color);
+}
+#home img {
+    width: 30vw;
+    margin-top: 100px;
+}
+#home h1 span {
+    font-size: 2.2em;
+    color: var(--secondary-color);
+}
+@media screen and (max-width: 1100px){
+    #home img {
+        width: 50vw;
+    }
+}
+@media screen and (max-width: 600px){
+    #home img {
+        width: 85vw;
+    }
+}
+.fade-out {
+    opacity: 0;
+}
+
+#courses{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.section-title{
+    color: var(--secondary-color);
+    font-size: 1.8em;
+}
+.course {
+    position: relative;
+    overflow: hidden;
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.course input {
     display: none;
 }
-.course-description-inactive{
-    display: none;
+.course label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+    background-color: var(--secondary-color);
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
 }
-.course-description-active{
-    display: block;
+.plus div{
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
 }
+.vert {
+    transform: rotate(90deg) translateX(3px);
+}
+.course-detail {
+    z-index: -1;
+    position: relative;
+    overflow: hidden;
+    top: -100%;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border: 1px solid var(--secondary-color);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.course-detail ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+.course-detail li {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 5px 10px;
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.course input:checked ~ .course-detail {
+    opacity: 1;
+    top: 0;
+}
+.course input:checked ~ label.plus.vert {
+    background-color: red;
+}
+
+/* Projects section */
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .projects-container{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-bottom: 100px;
 }
 .project-card{
-    width: 300px;
-    height: 400px;
-    background-color: var(--project-card-color);
+    position: relative;
+    width: 450px;
+    height: 350px;
     color: #fff;
-    border-radius: 30px;
     margin: 10px;
-    padding: 20px;
-    font-size: 14px;
+    border-radius: 20px;
 }
-.project-card:hover{
-    cursor: pointer;
-    transform: translateY(-10px);
-    transition: transform 0.3s ease-in;
+@media screen and (max-width: 500px){
+    .project-card {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+.image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+.image-blur{
+    backdrop-filter: blur(5px);
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    opacity: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: opacity 0.35s;
+    border-radius: 20px;
+}
+.overlay:hover {
+    opacity: 1;
+}
+.overlay > * {
+    transform: translateY(40px);
+    transition: transform 0.35s;
+}
+.overlay:hover > * {
+    transform: translateY(0px);
 }
 .project-card i{
-    float: right;
-    color: #000;
-    margin-left: 10px;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 1.2em;
+    color: #fff;
 }
 .project-card i:hover{
     color: #ccc;
@@ -259,5 +333,5 @@ footer{
 }
 hr{
     width: 80vw;
-    border-top: 2px solid var(--secondary-color);
+    border-top: 1px solid var(--secondary-color);
 }
