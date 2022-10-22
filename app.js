@@ -33,10 +33,10 @@ window.onscroll = () => {
     prevScrollPos = currentScrollPos;
 }
 // home fadeout
-//
 const coursesSection = document.getElementById('courses');
 const homeSection = document.getElementById('home');
 const initialCoursesSectionPosition = coursesSection.offsetTop;
+console.log(initialCoursesSectionPosition);
 window.onscroll = () => {
     let courseSectionPosition = coursesSection.offsetTop - window.pageYOffset;
     homeSection.style.opacity = 2*courseSectionPosition/initialCoursesSectionPosition - 1;
@@ -45,6 +45,20 @@ window.onscroll = () => {
 // projects section
 
 const projects = [
+    {
+        title:'Reddit clone',
+        text:'Created an app to fetch and display reddit posts. Managed components state with Redux. Deployed the application on Netlify.',
+        image:'./images/reddit.png',
+        githubLink:'https://github.com/ap3120/reddit-clone/',
+        url:'http://reddit-clone-22.netlify.app',
+    },
+    {
+        title:'Jammming',
+        text:'Use the Spotify API to search artists and songs and create playlists. Deployed the website using Surge.',
+        image:'./images/jammming.png',
+        githubLink:'https://github.com/ap3120/jamming',
+        url:'http://jammingworkshop.surge.sh',
+    },
     {
         title:'Web 3.0 Application',
         text:'Designed and deployed a Web 3.0 website able to pair with Metamask, to send Ethereum on the Goerli network and to interact with smart contracts. The smart contracts were tested locally using Hardhat and deployed on Alchemy.',
