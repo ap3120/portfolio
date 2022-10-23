@@ -33,20 +33,12 @@ links.forEach(link => {
     })
 })
 
-// Show hide navbar when scrolling and home fade-out
-let prevScrollPos = window.pageYOffset;
+// home fade-out
 const coursesSection = document.getElementById('courses');
 const homeSection = document.getElementById('home');
 const initialCoursesSectionPosition = coursesSection.offsetTop;
 
 window.onscroll = () => {
-    let currentScrollPos = window.pageYOffset;
-    if (prevScrollPos > currentScrollPos){
-        document.querySelector('nav').style.top = '0';
-    } else {
-        document.querySelector('nav').style.top = '-58px';
-    }
-    prevScrollPos = currentScrollPos;
     let courseSectionPosition = coursesSection.offsetTop - window.pageYOffset;
     homeSection.style.opacity = 2*courseSectionPosition/initialCoursesSectionPosition - 1;
 }
