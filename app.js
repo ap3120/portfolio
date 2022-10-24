@@ -70,7 +70,7 @@ const projects = [
 
     {
         title:'Django Database website',
-        text:'Database website using the Django framework where users can register and login to create lists and add items to them. Used PostgresQL database in the backend and tested the application with coverage. Performed continuous integration using Github workflow',
+        text:'Database website using the Django framework where users can register and login to create lists and add items to them. Used PostgresQL database in the backend and tested the application with coverage. Performed continuous integration using Github workflow.',
         image:'./images/django.jpeg',
         githubLink: '',
         url: ''

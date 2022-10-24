@@ -131,8 +131,8 @@ main{
 
 #home {
     position: sticky;
-    top: 160px;/* 100px for the margin and 60px for the navbar */
-    margin-top: 100px;
+    top: 120px;/* 60px for the margin and 60px for the navbar */
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -142,7 +142,7 @@ main{
 }
 #home img {
     width: 30vw;
-    margin-top: 100px;
+    margin-top: 50px;
 }
 #home h1 span {
     font-size: 2.2em;
