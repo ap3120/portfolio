@@ -141,33 +141,107 @@ main{
     z-index: -2;
 }
 #home img {
-    width: 30vw;
+    max-width: 85vw;
+    max-height: 55vh;
     margin-top: 50px;
 }
 #home h1 span {
     font-size: 2.2em;
     color: var(--secondary-color);
 }
-@media screen and (max-width: 1100px){
-    #home img {
-        width: 50vw;
-    }
-}
-@media screen and (max-width: 600px){
-    #home img {
-        width: 85vw;
-    }
-}
+
 .fade-out {
     opacity: 0;
 }
 
 #courses{
     width: 100%;
+    max-width: 800px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+#courses h3 {
+    cursor: pointer;
+    transition: 0.2s;
+    color: #fff;
+    background-color: var(--secondary-color);
+    padding: 20px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+#courses p {
+    max-height: 250px;
+    will-change: max-height;
+    contain: layout;
+    display: inline-block;
+    opacity: 1;
+    transform: translate(0,0);
+    transition: 0.3s opacity 0.6 max-height;
+    z-index: 2;
+    border: solid 1px var(--secondary-color);
+    padding: 20px;
+    margin-top: 0px;
+    margin-bottom: 0px
+}
+#courses ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+#courses ul li {
+    position: relative;
+    overflow: hidden;
+}
+#courses ul li:last-of-type {
+    padding-bottom: 0;
+}
+#courses ul li i {
+    position: absolute;
+    transform: translate(-6px, 0);
+    margin-top: 30px;
+    right: 15px;
+}
+#courses ul li i:before, ul li i:after {
+    content: '';
+    position: absolute;
+    background-color: #fff;
+    width: 3px;
+    height: 15px;
+}
+
+#courses ul li i:before {
+    transform: translate(-5px, 0) rotate(45deg);
+}
+#courses ul li i:after {
+    transform: translate(-5px, 0) rotate(-45deg);
+}
+
+#courses ul li input[type=checkbox] {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    touch-action: manipulation;
+}
+#courses ul li input[type=checkbox]:checked ~ p {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    max-height: 0px;
+    transition: 0.3s;
+    opacity: 0;
+}
+#courses ul li input[type=checkbox]:checked ~ i:before {
+    transform: translate(2px, 0) rotate(45deg);
+}
+#courses ul li input[type=checkbox]:checked ~ i:after {
+    transform: translate(-8px, 0) rotate(-45deg);
+}
+.transition, p, ul li i:before, ul li i:after {
+    transition: all 0.3s;
 }
 .section-title{
     color: var(--secondary-color);
@@ -183,81 +257,7 @@ main{
     z-index: 2;
     margin-bottom: 50px;
 }
-.course {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    max-width: 800px;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
-}
 
-.course input {
-    display: none;
-}
-.course label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1;
-    background-color: var(--secondary-color);
-    color: #fff;
-    border-radius: 20px;
-    padding: 5px 20px;
-    margin-bottom: 20px;
-    font-size: 1.5em;
-}
-.course label:hover {
-    cursor: pointer;
-}
-.plus div{
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-}
-.vert {
-    transform: rotate(90deg) translateX(3px);
-}
-.course-detail {
-    z-index: -1;
-    position: relative;
-    overflow: hidden;
-    top: -100%;
-    opacity: 0;
-    transition: all 0.3s ease;
-    border: 1px solid var(--secondary-color);
-    border-radius: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-.course-detail ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style-type: none;
-}
-.course-detail li {
-    background-color: var(--secondary-color);
-    color: #fff;
-    padding: 5px 10px;
-    margin: 10px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.course input:checked ~ .course-detail {
-    opacity: 1;
-    top: 0;
-}
-.course input:checked ~ label .plus .vert {
-    opacity: 0;
-}
 
 /* Projects section */
 
@@ -280,7 +280,6 @@ main{
     height: 350px;
     color: #fff;
     margin: 10px;
-    border-radius: 20px;
 }
 @media screen and (max-width: 500px){
     .project-card {
@@ -294,7 +293,6 @@ main{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px;
 }
 .image-blur{
     backdrop-filter: blur(5px);
@@ -316,7 +314,6 @@ main{
     padding: 20px;
     box-sizing: border-box;
     transition: opacity 0.35s;
-    border-radius: 20px;
 }
 .overlay:hover {
     opacity: 1;
@@ -341,14 +338,4 @@ main{
     column-count: 2;
     font-size: 12px;
     line-height: 20px;
-}
-footer{
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-hr{
-    width: 80vw;
-    border-top: 1px solid var(--secondary-color);
 }

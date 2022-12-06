@@ -47,6 +47,13 @@ window.onscroll = () => {
 
 const projects = [
     {
+        title: 'E commerce app',
+        text: 'Designed an E commerce website. Used postgres for the database, Express to build the server and React in the frontend. Managed user registration and sessions using Passport.js and managed app state using Redux.',
+        image:'./images/e-commerce.png',
+        githubLink:'https://github.com/ap3120/e_commerce_api/',
+        url:'', 
+    },
+    {
         title:'Reddit clone',
         text:'Created an app to fetch and display reddit posts. Managed components state with Redux. Deployed the application on Netlify.',
         image:'./images/reddit.png',
@@ -65,22 +72,14 @@ const projects = [
         text:'Designed and deployed a Web 3.0 website able to pair with Metamask, to send Ethereum on the Goerli network and to interact with smart contracts. The smart contracts were tested locally using Hardhat and deployed on Alchemy.',
         image:'./images/ethapp.png',
         githubLink:'https://github.com/ap3120/ethApp',
-        url:'http://ethapp.herokuapp.com/',
-    },
-
-    {
-        title:'Django Database website',
-        text:'Database website using the Django framework where users can register and login to create lists and add items to them. Used PostgresQL database in the backend and tested the application with coverage. Performed continuous integration using Github workflow.',
-        image:'./images/django.jpeg',
-        githubLink: '',
-        url: ''
+        url:'https://ethapp.netlify.app/',
     },
     {
         title: 'Sudoku game',
         text:'Created a sudoku game using plain CSS and JavaScript.',
         image:'./images/sudoku.png',
         githubLink:'https://github.com/ap3120/sudoku/',
-        url:'http://gecko-sudoku.herokuapp.com/',
+        url:'https://ap3120.github.io/sudoku/',
     },
     {
         title:'Pancakeswap clone',
