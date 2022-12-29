@@ -154,6 +154,8 @@ main{
     opacity: 0;
 }
 
+/* Courses section */
+
 #courses{
     width: 100%;
     max-width: 800px;
@@ -172,6 +174,8 @@ main{
     margin-bottom: 0;
 }
 #courses p {
+    width: 100%;
+    box-sizing: border-box;
     max-height: 250px;
     will-change: max-height;
     contain: layout;
