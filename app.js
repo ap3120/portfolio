@@ -51,7 +51,7 @@ const projects = [
         text: 'Designed an E commerce website. Used postgres for the database, Express to build the server and React in the frontend. Managed user registration and sessions using Passport.js and managed app state using Redux.',
         image:'./images/e-commerce.png',
         githubLink:'https://github.com/ap3120/e_commerce_api/',
-        url:'', 
+        url:'https://pern-e-commerce.herokuapp.com/', 
     },
     {
         title:'Reddit clone',
