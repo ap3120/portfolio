@@ -1,0 +1,353 @@
+:root{
+    --primary-color: #bbb;
+    --dark-grey-color: #777;
+    --blue-code: #05659b;
+    --green-code: #01dd96;
+}
+body{
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.bold-grey {
+    font-weight: bold;
+    color: var(--dark-grey-color);
+}
+.bold-blue {
+    font-weight: bold;
+    color: var(--blue-code);
+}
+.bold {
+    font-weight: bold;
+}
+.highlight-blue {
+    color: var(--blue-code);
+}
+/* nav section */
+
+nav{
+    background-color: var(--primary-color);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 55px;
+    transition: top 0.2s;
+    z-index: 3;
+}
+.link-list {
+    display: flex;
+}
+nav a{
+    text-decoration: none;
+    font-weight: bold;
+}
+nav a:hover{
+    cursor: pointer;
+}
+.burger{
+    display: none;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color: #000;
+}
+@media screen and (max-width:770px){
+    body{
+        overflow-x: hidden;
+    }
+    .link-list{
+        position: absolute;
+        right: 0px;
+        top: 53px;
+        background-color: var(--primary-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        margin: 0;
+        transition: transform 0.5s ease-in;
+    }
+    .link {
+        opacity: 0;
+    }
+    .burger{
+        display: block;
+    }
+}
+.nav-active{
+    transform: translateX(0%);
+}
+@keyframes navLinkFade{
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+.toggle .top{
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .mid{
+    opacity: 0;
+}
+.toggle .bot{
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+a {
+    color: var(--blue-code);
+}
+
+/* Main section */
+#profile, #skills, #experience, #projects, #contact {
+    width: 75vw;
+}
+@media screen and (max-width: 800px) {
+    #profile, #skills, #experience, #projects, #contact {
+        width: 80vw;
+    }
+}
+@media screen and (max-width: 500px) {
+    #profile, #skills, #experience, #projects, #contact {
+        width: 90vw;
+    }
+}
+/* home section */
+
+#home {
+    position: sticky;
+    top: 100px;/* 60px for the margin and 60px for the navbar */
+    color: var(--dark-grey-color);
+    z-index: -2;
+}
+#home img {
+    max-width: 85vw;
+    max-height: 55vh;
+    margin-top: 50px;
+}
+#home h1 span {
+    font-size: 2.2em;
+    color: var(--blue-code);
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+/* Profile section */
+#profile p {max-width: 850px;}
+/* Skills section */
+.section-title{
+    font-size: 2.8em;
+    font-weight: 500;
+    margin: 100px 0px;
+    background-image: linear-gradient(90deg, var(--blue-code), var(--green-code));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    z-index: 2;
+}
+.skills-container {
+    position: relative;
+}
+.skills-container-titles {
+    position: sticky;
+    top: 200px;
+    height: fit-content;
+    color: var(--primary-color);
+}
+
+.skills-container-content img {
+    width: 5vw;
+    margin: 20px
+}
+.skills-container-content h3 {
+    display: none;
+}
+@media screen and (max-width: 1200px) {
+    .skills-container-content img {
+        width: 65px;
+    }
+}
+@media screen and (max-width: 900px) {
+    .skills-container-titles {
+        display: none;
+    }
+    .skills-container-content h3 {
+        display: block;
+    }
+}
+/* Experience section */
+
+input[type=checkbox] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+.accordion {
+    position: relative;
+    width: 100%;
+}
+.accordion-title {
+    border: 2px solid var(--dark-grey-color);
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+}
+.accordion-content {
+    padding: 10px 0px;
+    transition: all 0.5s;
+    max-height: 300px;
+}
+input[type=checkbox]:checked ~ .accordion-content {
+    transition: all 0.5s;
+    max-height: 0px;
+    opacity: 0;
+}
+#experience button {
+    z-index: 1;
+}
+.arrow {
+    position: absolute;
+    right: 15px;
+    top: 60px;
+}
+.one {
+    height: 3px;
+    width: 25px;
+    background: #000;
+    transition: 0.5s;
+    transform: rotate(45deg) translate(0px, 2px);
+}
+.two {
+    height: 3px;
+    width: 25px;
+    background: #000;
+    transition: 0.5s;
+    transform: rotate(-45deg) translate(0px, -3px);
+}
+input[type=checkbox]:checked ~ .accordion-title .one {
+    transition: 0.5s;
+    transform: rotate(45deg) translate(0px, -9px);
+}
+input[type=checkbox]:checked ~ .accordion-title .two {
+    transition: 0.5s;
+    transform: rotate(-45deg) translate(0px, 9px);
+}
+/* Projects section */
+
+.project-card{
+    position: relative;
+    /*width: 450px;*/
+    width: 30%;
+    max-width: 450px;
+    min-width: 350px;
+    height: 350px;
+    color: #fff;
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+@media screen and (max-width: 500px){
+    .project-card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+.image{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.image-blur{
+    backdrop-filter: blur(5px);
+}
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-around;
+    opacity: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: opacity 0.35s;
+}
+.overlay:hover {
+    opacity: 1;
+}
+.overlay > * {
+    transform: translateY(40px);
+    transition: transform 0.35s;
+}
+.overlay:hover > * {
+    transform: translateY(0px);
+}
+.project-card i{
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 1.2em;
+    color: #fff;
+}
+.project-card i:hover{
+    color: #ccc;
+}
+.card-list{
+    column-count: 2;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+/* Contact form */
+.form-wrapper {
+    position: relative;
+    background-image: linear-gradient(45deg, #fff, var(--green-code));
+    width: 100%;
+    border-radius: 20px;
+}
+.form-wrapper .fa-paper-plane {
+    position: absolute;
+    color: var(--blue-code);
+    right: 5%;
+    top: -5%;
+    font-size: 10em;
+}
+@media screen and (max-width: 600px) {
+    .form-wrapper .fa-paper-plane {
+        font-size: 5em;
+    }
+}
+form {
+    min-width: 50vw;
+}
+.btn {
+    background: var(--blue-code);
+    color: #fff;
+    border: 1px solid var(--blue-code);
+}
+.btn:hover {
+    border: 1px solid var(--blue-code);
+}
